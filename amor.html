@@ -4,17 +4,120 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meu Amor ❤️</title>
-<link rel="stylesheet" href="css/estilo.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:Arial,sans-serif;
+
+    background:url("img/fundo.jpg")
+    center center/cover no-repeat;
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+
+.texto{
+    position:relative;
+    z-index:2;
+
+    max-width:900px;
+
+    padding:30px;
+    margin:30px;
+
+    color:white;
+    text-align:center;
+
+    backdrop-filter:blur(4px);
+}
+
+.texto h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.texto p{
+    font-size:1.2rem;
+    line-height:1.8;
+    white-space:pre-line;
+}
+
+.music-btn{
+    margin-top:25px;
+
+    padding:15px 30px;
+
+    border:none;
+    border-radius:999px;
+
+    background:#ff4d6d;
+    color:white;
+
+    font-size:18px;
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.music-btn:hover{
+    transform:scale(1.05);
+}
+
+.heart{
+    position:fixed;
+    top:-30px;
+    z-index:1;
+
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+@media(max-width:768px){
+
+    .texto h1{
+        font-size:2rem;
+    }
+
+    .texto p{
+        font-size:1rem;
+    }
+
+}
+</style>
 </head>
 
-<body class="amor">
+<body>
 
 <div class="overlay"></div>
 
 <div class="texto">
+
     <h1>Eu te amo ❤️</h1>
+
     <p>
-        Geiziane ❤️
+Geiziane ❤️
 
 Eu sei que ultimamente fui meio tapado com você e que nem sempre tive as melhores atitudes. Mas estou tentando melhorar aos poucos, aprendendo com meus erros e me esforçando para ser alguém melhor para nós dois.
 
@@ -30,29 +133,75 @@ Pode cobrar carinho, atenção, elogios, porque hoje eu estou por sua conta.
 
 Feliz Dia dos Namorados, meu amor. Espero que este seja apenas mais um dos muitos momentos felizes que ainda vamos compartilhar juntos. ❤️✨
     </p>
+
+    <button class="music-btn" onclick="toggleMusic()">
+        🎵 Tocar Música
+    </button>
+
 </div>
 
-<script>
-function criarCoracao() {
-    const heart = document.createElement("div");
+<audio id="musica" loop>
+    <source src="audio/musica.mp3" type="audio/mpeg">
+</audio>
 
-    heart.innerHTML = "🤍";
+<script>
+
+let tocando = false;
+
+function toggleMusic(){
+
+    const musica = document.getElementById("musica");
+    const botao = document.querySelector(".music-btn");
+
+    if(!tocando){
+
+        musica.play();
+
+        botao.innerHTML =
+        "⏸️ Pausar Música";
+
+        tocando = true;
+
+    }else{
+
+        musica.pause();
+
+        botao.innerHTML =
+        "🎵 Tocar Música";
+
+        tocando = false;
+    }
+}
+
+function criarCoracao(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.innerHTML = "❤️";
     heart.classList.add("heart");
 
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (10 + Math.random() * 30) + "px";
+    heart.style.left =
+    Math.random()*100 + "vw";
 
-    const tempo = 4 + Math.random() * 6;
-    heart.style.animationDuration = tempo + "s";
+    heart.style.fontSize =
+    (15 + Math.random()*25) + "px";
+
+    const tempo =
+    4 + Math.random()*6;
+
+    heart.style.animationDuration =
+    tempo + "s";
 
     document.body.appendChild(heart);
 
-    setTimeout(() => {
+    setTimeout(()=>{
         heart.remove();
     }, tempo * 1000);
 }
 
 setInterval(criarCoracao, 250);
+
 </script>
 
 </body>
