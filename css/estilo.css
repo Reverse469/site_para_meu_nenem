@@ -26,6 +26,7 @@ body{
 
 .container{
     text-align:center;
+    padding:20px;
 }
 
 .container h1{
@@ -56,8 +57,7 @@ body{
 /* Página amor */
 
 .amor{
-    overflow:hidden;
-    height:100vh;
+    min-height:100vh;
 
     display:flex;
     justify-content:center;
@@ -65,32 +65,72 @@ body{
 
     background:url("../img/fundo.jpg")
     center center/cover no-repeat;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+    position:relative;
 }
 
 .overlay{
-    position:absolute;
+    position:fixed;
     inset:0;
-    background:rgba(0,0,0,.35);
+    background:rgba(0,0,0,.45);
 }
 
 .texto{
     position:relative;
     z-index:2;
+
     text-align:center;
     color:white;
+
+    max-width:900px;
+    padding:30px;
+    margin:20px;
 }
 
 .texto h1{
     font-size:4rem;
-    margin-bottom:15px;
+    margin-bottom:20px;
+    text-shadow:0 0 10px rgba(0,0,0,.5);
 }
 
 .texto p{
     font-size:1.5rem;
+    line-height:1.8;
+    white-space:pre-line;
+    text-shadow:0 0 5px rgba(0,0,0,.5);
+}
+
+.music-btn{
+    display:block;
+    margin:30px auto 0 auto;
+
+    padding:15px 30px;
+
+    border:none;
+    border-radius:999px;
+
+    background:#ff4d6d;
+    color:white;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    position:relative;
+    z-index:999;
+
+    transition:.3s;
+}
+
+.music-btn:hover{
+    transform:scale(1.05);
 }
 
 .heart{
-    position:absolute;
+    position:fixed;
     top:-30px;
     z-index:1;
     animation:fall linear forwards;
@@ -99,5 +139,32 @@ body{
 @keyframes fall{
     to{
         transform:translateY(110vh);
+    }
+}
+
+/* Celulares */
+
+@media(max-width:768px){
+
+    .texto{
+        padding:20px;
+    }
+
+    .texto h1{
+        font-size:2.2rem;
+    }
+
+    .texto p{
+        font-size:1rem;
+    }
+
+    .heart-btn{
+        font-size:18px;
+        padding:15px 30px;
+    }
+
+    .music-btn{
+        width:100%;
+        max-width:280px;
     }
 }

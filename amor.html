@@ -5,110 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meu Amor ❤️</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    min-height:100vh;
-    overflow-x:hidden;
-    overflow-y:auto;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-family:Arial,sans-serif;
-
-    background:url("img/fundo.jpg")
-    center center/cover no-repeat;
-}
-
-.overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.45);
-}
-
-.texto{
-    position:relative;
-    z-index:2;
-
-    max-width:900px;
-
-    padding:30px;
-    margin:30px;
-
-    color:white;
-    text-align:center;
-
-    backdrop-filter:blur(4px);
-}
-
-.texto h1{
-    font-size:3rem;
-    margin-bottom:20px;
-}
-
-.texto p{
-    font-size:1.2rem;
-    line-height:1.8;
-    white-space:pre-line;
-}
-
-.music-btn{
-    margin-top:25px;
-
-    padding:15px 30px;
-
-    border:none;
-    border-radius:999px;
-
-    background:#ff4d6d;
-    color:white;
-
-    font-size:18px;
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.music-btn:hover{
-    transform:scale(1.05);
-}
-
-.heart{
-    position:fixed;
-    top:-30px;
-    z-index:1;
-
-    animation:fall linear forwards;
-}
-
-@keyframes fall{
-    to{
-        transform:translateY(110vh);
-    }
-}
-
-@media(max-width:768px){
-
-    .texto h1{
-        font-size:2rem;
-    }
-
-    .texto p{
-        font-size:1rem;
-    }
-
-}
-</style>
+<link rel="stylesheet" href="css/estilo.css">
 </head>
 
-<body>
+<body class="amor">
 
 <div class="overlay"></div>
 
@@ -148,54 +48,41 @@ Feliz Dia dos Namorados, meu amor. Espero que este seja apenas mais um dos muito
 
 let tocando = false;
 
-function toggleMusic(){
+function toggleMusic() {
 
     const musica = document.getElementById("musica");
     const botao = document.querySelector(".music-btn");
 
-    if(!tocando){
+    if (!tocando) {
 
         musica.play();
-
-        botao.innerHTML =
-        "⏸️ Pausar Música";
-
+        botao.innerHTML = "⏸️ Pausar Música";
         tocando = true;
 
-    }else{
+    } else {
 
         musica.pause();
-
-        botao.innerHTML =
-        "🎵 Tocar Música";
-
+        botao.innerHTML = "🎵 Tocar Música";
         tocando = false;
     }
 }
 
-function criarCoracao(){
+function criarCoracao() {
 
-    const heart =
-    document.createElement("div");
+    const heart = document.createElement("div");
 
     heart.innerHTML = "❤️";
     heart.classList.add("heart");
 
-    heart.style.left =
-    Math.random()*100 + "vw";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
 
-    heart.style.fontSize =
-    (15 + Math.random()*25) + "px";
-
-    const tempo =
-    4 + Math.random()*6;
-
-    heart.style.animationDuration =
-    tempo + "s";
+    const tempo = 4 + Math.random() * 6;
+    heart.style.animationDuration = tempo + "s";
 
     document.body.appendChild(heart);
 
-    setTimeout(()=>{
+    setTimeout(() => {
         heart.remove();
     }, tempo * 1000);
 }
