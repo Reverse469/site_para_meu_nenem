@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Amor ❤️</title>
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="amor">
+
+<div class="overlay"></div>
+
+<div class="texto">
+    <h1>Eu te amo ❤️</h1>
+    <p>
+        Você é a melhor parte dos meus dias.
+    </p>
+</div>
+
+<script>
+function criarCoracao() {
+    const heart = document.createElement("div");
+
+    heart.innerHTML = "🤍";
+    heart.classList.add("heart");
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (10 + Math.random() * 30) + "px";
+
+    const tempo = 4 + Math.random() * 6;
+    heart.style.animationDuration = tempo + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, tempo * 1000);
+}
+
+setInterval(criarCoracao, 250);
+</script>
+
+</body>
+</html>
