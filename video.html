@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>❤️ Sua Surpresa ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<audio id="music" autoplay loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<div class="glass video-box">
+
+<h1 class="title">
+❤️ Feliz Aniversário ❤️
+</h1>
+
+<video id="video" controls autoplay playsinline>
+
+<source src="assets/video.mp4" type="video/mp4">
+
+Seu navegador não suporta vídeos.
+
+</video>
+
+<p id="msg" class="final-message">
+
+Espero que você goste dessa surpresa. ❤️
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+const video=document.getElementById("video");
+
+video.addEventListener("ended",()=>{
+
+confetti({
+
+particleCount:300,
+
+spread:180,
+
+origin:{y:0.6}
+
+});
+
+document.getElementById("msg").innerHTML=`
+
+<h2 style="color:#ff1493;">💖 Feliz Aniversário 💖</h2>
+
+<br>
+
+Obrigado por assistir até aqui.
+
+<br><br>
+
+Eu preparei tudo isso com muito carinho.
+
+<br><br>
+
+Espero que você tenha gostado dessa pequena surpresa.
+
+<br><br>
+
+❤️ Você é muito especial pra mim. ❤️
+
+<br><br>
+
+Com carinho,
+
+<br>
+
+<b>Diogo ❤️</b>
+
+`;
+
+});
+
+</script>
+
+</body>
+
+</html>

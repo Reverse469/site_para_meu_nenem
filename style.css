@@ -1,0 +1,537 @@
+/* ===========================
+RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#ff9ecb,#ffc7e3,#ffdff1,#f3c7ff);
+    background-size:400% 400%;
+    animation:fundo 15s ease infinite;
+}
+
+button{
+    font-family:'Poppins',sans-serif;
+}
+
+@keyframes fundo{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* ===========================
+CONTAINER
+=========================== */
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    z-index:5;
+}
+
+/* ===========================
+GLASS
+=========================== */
+
+.glass{
+
+width:700px;
+max-width:95%;
+
+padding:45px;
+
+border-radius:30px;
+
+backdrop-filter:blur(18px);
+
+background:rgba(255,255,255,.92);
+
+border:2px solid rgba(255,255,255,.6);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.15),
+0 0 30px rgba(255,255,255,.25);
+
+text-align:center;
+
+animation:aparecer .8s;
+
+}
+
+/* ===========================
+TÍTULO
+=========================== */
+
+.title{
+
+font-family:'Dancing Script',cursive;
+
+font-size:65px;
+
+color:#ff1493;
+
+text-shadow:0 0 15px rgba(255,20,147,.35);
+
+margin-bottom:10px;
+
+}
+
+.name{
+
+font-size:34px;
+
+font-weight:700;
+
+color:#222;
+
+margin-bottom:30px;
+
+}
+
+/* ===========================
+TEXTOS
+=========================== */
+
+#typing{
+
+min-height:120px;
+
+font-size:22px;
+
+color:#333;
+
+line-height:1.7;
+
+}
+
+#question{
+
+font-size:30px;
+
+font-weight:600;
+
+color:#222;
+
+margin-bottom:20px;
+
+}
+
+/* ===========================
+BOTÃO PRINCIPAL
+=========================== */
+
+#startButton{
+
+margin-top:40px;
+
+padding:18px 40px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:20px;
+
+font-weight:700;
+
+color:white;
+
+background:linear-gradient(90deg,#ff4da6,#ff66cc);
+
+transition:.35s;
+
+box-shadow:
+0 0 20px hotpink,
+0 0 40px pink;
+
+}
+
+#startButton:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 35px deeppink,
+0 0 60px hotpink;
+
+}
+
+/* ===========================
+BOTÃO MÚSICA
+=========================== */
+
+#musicBtn{
+
+position:absolute;
+
+top:25px;
+
+right:25px;
+
+width:65px;
+
+height:65px;
+
+border:none;
+
+border-radius:50%;
+
+cursor:pointer;
+
+font-size:25px;
+
+background:white;
+
+transition:.3s;
+
+box-shadow:0 0 20px pink;
+
+}
+
+#musicBtn:hover{
+
+transform:rotate(15deg) scale(1.1);
+
+}
+
+/* ===========================
+HEARTS
+=========================== */
+
+#hearts{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+}
+
+.heart{
+
+position:absolute;
+
+font-size:24px;
+
+color:#ff2f87;
+
+animation:fall linear forwards;
+
+opacity:.8;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-10vh) rotate(0);
+
+opacity:0;
+
+}
+
+10%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+@keyframes aparecer{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/* ===========================
+BARRA DE PROGRESSO
+=========================== */
+
+.progress{
+    width:100%;
+    height:12px;
+    background:#e5e5e5;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:30px;
+}
+
+#progressBar{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#ff1493,#ff69b4);
+    transition:.5s;
+}
+
+/* ===========================
+BOTÕES DO QUIZ
+=========================== */
+
+#answers{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:30px;
+}
+
+#answers button{
+
+    padding:18px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    background:linear-gradient(90deg,#ff4da6,#ff66cc);
+
+    transition:.25s;
+
+    box-shadow:0 8px 18px rgba(255,20,147,.25);
+
+}
+
+#answers button:hover{
+
+    transform:translateY(-3px) scale(1.03);
+
+    background:linear-gradient(90deg,#ff2c91,#ff4da6);
+
+}
+
+#answers button:active{
+
+    transform:scale(.98);
+
+}
+
+/* ===========================
+TELA DE ERRO
+=========================== */
+
+.error-title{
+
+    font-family:'Dancing Script',cursive;
+
+    font-size:60px;
+
+    color:#ff1493;
+
+}
+
+.error-text{
+
+    color:#333;
+
+    font-size:22px;
+
+    line-height:1.7;
+
+    margin:25px 0;
+
+}
+
+.restart{
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    background:linear-gradient(90deg,#ff4da6,#ff66cc);
+
+    transition:.3s;
+
+}
+
+.restart:hover{
+
+    transform:scale(1.06);
+
+}
+
+/* ===========================
+VÍDEO
+=========================== */
+
+.video-box{
+
+    width:100%;
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+.video-box video{
+
+    width:100%;
+
+    border-radius:25px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
+
+}
+
+.final-message{
+
+    margin-top:25px;
+
+    color:#333;
+
+    font-size:22px;
+
+    line-height:1.7;
+
+}
+
+/* ===========================
+RESPONSIVO
+=========================== */
+
+@media (max-width:700px){
+
+    .glass{
+
+        padding:30px;
+
+    }
+
+    .title{
+
+        font-size:46px;
+
+    }
+
+    .name{
+
+        font-size:26px;
+
+    }
+
+    #typing{
+
+        font-size:18px;
+
+    }
+
+    #question{
+
+        font-size:24px;
+
+    }
+
+    #answers button{
+
+        font-size:17px;
+
+        padding:16px;
+
+    }
+
+    #startButton{
+
+        font-size:18px;
+
+        padding:16px 28px;
+
+    }
+
+    .error-title{
+
+        font-size:46px;
+
+    }
+
+    .error-text{
+
+        font-size:18px;
+
+    }
+
+    .final-message{
+
+        font-size:18px;
+
+    }
+
+}

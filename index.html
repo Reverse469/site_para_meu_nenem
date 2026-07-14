@@ -1,22 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Você ❤️</title>
-    <link rel="stylesheet" href="css/estilo.css">
+
+    <title>💖 Feliz Aniversário 💖</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
 </head>
-<body class="inicio">
 
-    <div class="container">
-        <h1>Tenho uma surpresinha pra você nenem❤️</h1>
+<body>
 
-        <a href="amor.html">
-            <button class="heart-btn">
-                ❤️ Clica aqui :3
-            </button>
-        </a>
+<div id="hearts"></div>
+
+<audio id="music" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn">
+    🎵
+</button>
+
+<div class="container">
+
+    <div class="glass">
+
+        <h1 class="title">
+            Feliz Aniversário
+        </h1>
+
+        <h2 class="name">
+            Geiziane ❤️
+        </h2>
+
+        <p id="typing"></p>
+
+        <button id="startButton">
+            Começar a surpresa 💖
+        </button>
+
     </div>
 
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+
 </body>
+
 </html>
